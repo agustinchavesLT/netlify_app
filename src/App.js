@@ -21,6 +21,7 @@ function App() {
               <a href="/blog" className="nav-link">BLOG</a>
             </li>
           </ul>
+          </div>
         </nav>
 
         <main className="main-content">
@@ -37,7 +38,6 @@ function App() {
           })()}
         </main>
       </div>
-    </div>
   );
 }
 
