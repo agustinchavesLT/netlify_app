@@ -9,7 +9,7 @@
 # ========================================
 
 # 1. Basic redirect - old page to new page
-/old-home    /    301
+/blog    /profile    301
 
 # 2. Profile redirect with parameter
 /user/:id    /profile    302
