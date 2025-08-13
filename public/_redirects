@@ -2,15 +2,17 @@
 # This file is used to test various redirect scenarios
 
 # SPA fallback - redirect all routes to index.html for client-side routing
-/*    /index.html   200
+
 
 # ========================================
 # BASIC REDIRECTS FOR TESTING
 # ========================================
 
 # 1. Basic redirect - old page to new page
+
 /old-home    /    301!
-/old-blog    /profile    301!
+/old-blog    /profile    301
+/nonsense    /blog    302
 
 # 2. Profile redirect with parameter
 /user/:id    /profile    302!
