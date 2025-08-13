@@ -10,6 +10,9 @@
 # ========================================
 
 # 1. Basic redirect - old page to new page
+
+/blog    /profile    301!
+/profile    /blog    301!
 /old-home    /    301!
 /old-blog    /profile    301!
 
