@@ -9,6 +9,7 @@
 # ========================================
 
 # 1. Basic redirect - old page to new page
+/old-home    /    301!
 /blog    /profile    301
 
 # 2. Profile redirect with parameter
@@ -65,7 +66,13 @@
 # ========================================
 
 # 13. Test redirect chain
-/test-redirect    /profile    302
+/test-redirect    /profile    302!
+
+# 14. Test redirect with hash
+/test-hash    /#section    301!
+
+# 15. Test redirect to external site
+/external    https://example.com    301!
 
 # 14. Test redirect with hash
 /test-hash    /#section    301
