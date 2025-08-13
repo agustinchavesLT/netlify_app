@@ -38,7 +38,7 @@
 # ========================================
 
 # 7. Blog wildcard redirect
-/blog/*    /news/:splat    301
+#/blog/*    /news/:splat    301
 
 # 8. Documentation redirect
 /docs/*    /help/:splat    302
