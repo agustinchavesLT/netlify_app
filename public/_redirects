@@ -4,10 +4,76 @@
 # SPA fallback - redirect all routes to index.html for client-side routing
 /*    /index.html   200
 
-# Example redirects for testing (uncomment to test)
-# /old-home    /    301
-# /user/:id    /profile    302
-# /article/:slug    /blog    301
+# ========================================
+# BASIC REDIRECTS FOR TESTING
+# ========================================
 
-# Custom 404 page
+# 1. Basic redirect - old page to new page
+/old-home    /    301
+
+# 2. Profile redirect with parameter
+/user/:id    /profile    302
+
+# 3. Blog article redirect
+/article/:slug    /blog    301
+
+# ========================================
+# QUERY PARAMETER REDIRECTS
+# ========================================
+
+# 4. Search with query parameter redirect
+/search?id=:id    /results/:id    301
+
+# 5. Category redirect with query
+/category?type=:type    /blog?category=:type    302
+
+# 6. User redirect with multiple parameters
+/user?name=:name&role=:role    /profile?user=:name&type=:role    301
+
+# ========================================
+# WILDCARD (SPLAT) REDIRECTS
+# ========================================
+
+# 7. Blog wildcard redirect
+/blog/*    /news/:splat    301
+
+# 8. Documentation redirect
+/docs/*    /help/:splat    302
+
+# ========================================
+# FORCED REDIRECTS (with exclamation mark)
+# ========================================
+
+# 9. Force redirect even if file exists
+/legacy    /modern    301!
+
+# 10. Force redirect for old API
+/api/v1/*    /api/v2/:splat    301!
+
+# ========================================
+# CONDITIONAL REDIRECTS
+# ========================================
+
+# 11. Language redirect
+/es/*    /en/:splat    301
+
+# 12. Mobile redirect (example)
+/mobile/*    /:splat    302
+
+# ========================================
+# TESTING REDIRECTS FOR INVESTIGATION
+# ========================================
+
+# 13. Test redirect chain
+/test-redirect    /profile    302
+
+# 14. Test redirect with hash
+/test-hash    /#section    301
+
+# 15. Test redirect to external site
+/external    https://example.com    301
+
+# ========================================
+# CUSTOM 404 PAGE
+# ========================================
 # /404.html    404
