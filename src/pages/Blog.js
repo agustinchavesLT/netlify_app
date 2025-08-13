@@ -1,10 +1,29 @@
 import React from 'react';
 
 function Blog() {
+  const params = new URLSearchParams(window.location.search);
+  const rawCategory = (params.get('category') || '').toLowerCase();
+
+  const categoryMap = {
+    food: 'Food',
+    drinks: 'Drinks',
+    other: 'Other',
+  } as Record<string, string>;
+
+  const category = categoryMap[rawCategory] || null;
+
   return (
     <div className="page blog-page">
       <h2>Blog</h2>
-      <p>This is the blog page for testing Netlify redirects.</p>
+      {category ? (
+        <p><strong>Category:</strong> {category}</p>
+      ) : (
+        <p>
+          This is the blog page for testing Netlify redirects. Try visiting
+          <code> /category?type=food</code>, <code>/category?type=drinks</code>, or
+          <code> /category?type=other</code> to be redirected here with a category filter.
+        </p>
+      )}
       <div className="blog-content">
         <div className="blog-post">
           <h3>Understanding Netlify Redirects</h3>
