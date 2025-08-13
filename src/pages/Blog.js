@@ -8,7 +8,7 @@ function Blog() {
     food: 'Food',
     drinks: 'Drinks',
     other: 'Other',
-  } as Record<string, string>;
+  };
 
   const category = categoryMap[rawCategory] || null;
 
