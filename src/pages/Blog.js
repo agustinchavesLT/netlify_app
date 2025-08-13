@@ -2,7 +2,7 @@ import React from 'react';
 
 function Blog() {
   const params = new URLSearchParams(window.location.search);
-  const rawCategory = (params.get('category') || '').toLowerCase();
+  const rawCategory = (params.get('type') || '').toLowerCase();
 
   const categoryMap = {
     food: 'Food',
@@ -16,12 +16,15 @@ function Blog() {
     <div className="page blog-page">
       <h2>Blog</h2>
       {category ? (
-        <p><strong>Category:</strong> {category}</p>
+        <div>
+          <h3>Category: {category}</h3>
+          <p>Showing posts for the {category.toLowerCase()} category.</p>
+        </div>
       ) : (
         <p>
           This is the blog page for testing Netlify redirects. Try visiting
           <code> /category?type=food</code>, <code>/category?type=drinks</code>, or
-          <code> /category?type=other</code> to be redirected here with a category filter.
+          <code>/category?type=other</code> to be redirected here with a category filter.
         </p>
       )}
       <div className="blog-content">
