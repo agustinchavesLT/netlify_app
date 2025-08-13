@@ -74,12 +74,6 @@
 # 15. Test redirect to external site
 /external    https://example.com    301!
 
-# 14. Test redirect with hash
-/test-hash    /#section    301
-
-# 15. Test redirect to external site
-/external    https://example.com    301
-
 # ========================================
 # CUSTOM 404 PAGE
 # ========================================
