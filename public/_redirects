@@ -22,13 +22,13 @@
 # ========================================
 
 # 4. Search with query parameter redirect
-/search?id=:id    /results/:id    301
+/search?id=:id    /results/:id    301!
 
 # 5. Category redirect with query
-/category?type=:type    /blog?category=:type    302
+/category?type=:type    /blog?category=:type    302!
 
 # 6. User redirect with multiple parameters
-/user?name=:name&role=:role    /profile?user=:name&type=:role    301
+/user?name=:name&role=:role    /profile?user=:name&type=:role    301!
 
 # ========================================
 # WILDCARD (SPLAT) REDIRECTS
