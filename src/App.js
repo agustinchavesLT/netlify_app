@@ -30,8 +30,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/old-home" element={<Home />} />
+            <Route path="/old-home" element={<Blog />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </main>
