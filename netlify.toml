@@ -1,0 +1,34 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/old-home"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/old-blog"
+  to = "/profile"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/nonsense"
+  to = "/blog"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/category"
+  to = "/blog"
+  status = 302
+  force = true
+  query = "type=:type"
+  conditions = {category = ":type"}
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
