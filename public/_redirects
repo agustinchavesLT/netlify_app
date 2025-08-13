@@ -11,8 +11,8 @@
 # 1. Basic redirect - old page to new page
 
 /old-home    /    301!
-/old-blog    /profile    301
-/nonsense    /blog    302
+/old-blog    /profile    301!
+/nonsense    /blog    302!
 
 # 2. Profile redirect with parameter
 /user/:id    /profile    302!
