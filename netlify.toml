@@ -23,6 +23,12 @@
 # Category redirects are now handled by Edge Functions for complex logic
 # See netlify/edge-functions/category-redirects.ts
 
+# Temporarily disabled Edge Function to test React routing
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
+
 # SPA fallback - must be last to avoid interfering with Edge Functions
 [[redirects]]
   from = "/*"
