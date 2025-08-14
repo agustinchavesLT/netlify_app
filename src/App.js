@@ -83,6 +83,7 @@ function App() {
       <main className="main-content">
         {(() => {
           console.log('Rendering route for path:', currentPath);
+          console.log('Does path start with /archive/?', currentPath.startsWith('/archive/'));
           
           switch (currentPath) {
             case '/profile':
