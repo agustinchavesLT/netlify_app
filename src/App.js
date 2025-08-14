@@ -17,6 +17,9 @@ function App() {
       setSearchParams(window.location.search);
     };
 
+    // Force initial state update
+    handleUrlChange();
+
     // Listen for popstate (back/forward buttons)
     window.addEventListener('popstate', handleUrlChange);
 
