@@ -14,42 +14,12 @@ function Archive() {
   if (match) {
     try {
       const [, year, month, day, slug] = match;
-      
-      // Validate the date components
-      const yearNum = parseInt(year, 10);
-      const monthNum = parseInt(month, 10);
-      const dayNum = parseInt(day, 10);
-      
-      console.log('Parsed values:', { yearNum, monthNum, dayNum, slug });
-      
-      // Check if date is valid
-      if (isNaN(yearNum) || isNaN(monthNum) || isNaN(dayNum)) {
-        throw new Error('Invalid date components');
-      }
-      
-      if (monthNum < 1 || monthNum > 12 || dayNum < 1 || dayNum > 31) {
-        throw new Error('Date out of range');
-      }
-      
-      const date = new Date(yearNum, monthNum - 1, dayNum); // month is 0-indexed
-      
-      // Check if the date is valid
-      if (isNaN(date.getTime())) {
-        throw new Error('Invalid date');
-      }
-      
-      console.log('Valid date created:', date);
-      
       return (
         <div className="page archive-page">
           <h2>Archive Post</h2>
           <div className="archive-content">
             <div className="post-meta">
-              <p><strong>Date:</strong> {date.toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-              })}</p>
+              <p><strong>Date:</strong> {year}/{month}/{day}</p>
               <p><strong>Slug:</strong> {slug}</p>
               <p><strong>Full URL:</strong> {path}</p>
             </div>
