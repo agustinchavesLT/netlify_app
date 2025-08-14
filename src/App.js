@@ -82,8 +82,16 @@ function App() {
 
       <main className="main-content">
         {(() => {
+          console.log('=== ROUTING DEBUG ===');
           console.log('Rendering route for path:', currentPath);
-          console.log('Does path start with /archive/?', currentPath.startsWith('/archive/'));
+          console.log('Path type:', typeof currentPath);
+          console.log('Path length:', currentPath.length);
+          console.log('Does path start with /archive?:', currentPath.startsWith('/archive'));
+          console.log('Does path start with /archive/?:', currentPath.startsWith('/archive/'));
+          console.log('Path === "/archive":', currentPath === '/archive');
+          console.log('Path === "/archive/":', currentPath === '/archive/');
+          console.log('Path includes "archive":', currentPath.includes('archive'));
+          console.log('=== END ROUTING DEBUG ===');
           
           switch (currentPath) {
             case '/profile':
@@ -93,7 +101,7 @@ function App() {
               console.log('Rendering Blog component');
               return <Blog />;
             case '/archive':
-              console.log('Rendering Archive component');
+              console.log('Rendering Archive component (exact match)');
               return <Archive />;
             default:
               // Check if it's an archive URL pattern
