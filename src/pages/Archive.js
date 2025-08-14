@@ -3,13 +3,19 @@ import React from 'react';
 function Archive() {
   const path = window.location.pathname;
   
+  console.log('Archive component rendered with path:', path);
+  
   // Extract date components from URL like /archive/2024/08/14/some-post
   const archivePattern = /^\/archive\/(\d{4})\/(\d{2})\/(\d{2})\/(.+)$/;
   const match = path.match(archivePattern);
   
+  console.log('Archive pattern match:', match);
+  
   if (match) {
     const [, year, month, day, slug] = match;
     const date = new Date(year, month - 1, day); // month is 0-indexed
+    
+    console.log('Extracted values:', { year, month, day, slug, date });
     
     return (
       <div className="page archive-page">
@@ -46,6 +52,7 @@ function Archive() {
   }
   
   // Fallback if no match
+  console.log('No pattern match, showing fallback');
   return (
     <div className="page archive-page">
       <h2>Archive</h2>

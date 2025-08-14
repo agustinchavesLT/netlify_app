@@ -12,6 +12,7 @@ function App() {
   useEffect(() => {
     // Function to update state when URL changes
     const handleUrlChange = () => {
+      console.log('URL change detected:', window.location.pathname, window.location.search);
       setCurrentPath(window.location.pathname);
       setSearchParams(window.location.search);
     };
@@ -40,6 +41,8 @@ function App() {
       
       if (currentUrl !== storedUrl) {
         console.log('URL changed via redirect, updating state');
+        console.log('Current URL:', currentUrl);
+        console.log('Stored URL:', storedUrl);
         handleUrlChange();
       }
     }, 100); // Check every 100ms
@@ -51,6 +54,9 @@ function App() {
       clearInterval(urlPolling);
     };
   }, [currentPath, searchParams]);
+
+  // Debug logging for current state
+  console.log('Current App state:', { currentPath, searchParams });
 
   return (
     <div className="App">
@@ -76,18 +82,25 @@ function App() {
 
       <main className="main-content">
         {(() => {
+          console.log('Rendering route for path:', currentPath);
+          
           switch (currentPath) {
             case '/profile':
+              console.log('Rendering Profile component');
               return <Profile />;
             case '/blog':
+              console.log('Rendering Blog component');
               return <Blog />;
             case '/archive':
+              console.log('Rendering Archive component');
               return <Archive />;
             default:
               // Check if it's an archive URL pattern
               if (currentPath.startsWith('/archive/')) {
+                console.log('Rendering Archive component for pattern:', currentPath);
                 return <Archive />;
               }
+              console.log('Rendering Home component');
               return <Home />;
           }
         })()}
