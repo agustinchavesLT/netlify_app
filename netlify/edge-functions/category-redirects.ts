@@ -21,7 +21,7 @@ export default async (req: Request, { cookies, geo }: Context) => {
             if (validTypes.includes(normalizedType)) {
                 console.log(`Redirecting to /blog?type=${normalizedType}`);
                 // Redirect to blog with the category
-                return new URL(`/blog?type=${normalizedType}`, req.url);
+                return new URL(`/blog?type=:${normalizedType}`, req.url);
             }
         }
 
