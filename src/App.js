@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Blog from './pages/Blog';
+import Archive from './pages/Archive';
 import './App.css';
 
 function App() {
@@ -54,6 +55,9 @@ function App() {
             <li className="nav-item">
               <a href="/blog" className="nav-link">BLOG</a>
             </li>
+            <li className="nav-item">
+              <a href="/archive" className="nav-link">ARCHIVE</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -65,7 +69,13 @@ function App() {
               return <Profile />;
             case '/blog':
               return <Blog />;
+            case '/archive':
+              return <Archive />;
             default:
+              // Check if it's an archive URL pattern
+              if (currentPath.startsWith('/archive/')) {
+                return <Archive />;
+              }
               return <Home />;
           }
         })()}

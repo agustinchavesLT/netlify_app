@@ -43,6 +43,8 @@ export default async (req: Request, { cookies, geo }: Context) => {
     const match = path.match(datePattern);
     if (match) {
         const [, year, month, day, slug] = match;
+        console.log(`Date pattern matched: ${year}/${month}/${day}/${slug}`);
+        console.log(`Redirecting to /archive/${year}/${month}/${day}/${slug}`);
         return Response.redirect(`/archive/${year}/${month}/${day}/${slug}`, 302);
     }
 
@@ -52,5 +54,5 @@ export default async (req: Request, { cookies, geo }: Context) => {
 };
 
 export const config: Config = {
-    path: "/category"
+    path: ["/category", "/blog/*"]
 };
