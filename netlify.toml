@@ -20,11 +20,8 @@
   status = 302
   force = true
 
-[[redirects]]
-  from = "/category"
-  to = "/blog"
-  status = 302
-  force = true
+# Category redirects are now handled by Edge Functions for complex logic
+# See netlify/edge-functions/category-redirects.ts
 
 [[redirects]]
   from = "/*"
