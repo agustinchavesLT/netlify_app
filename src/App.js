@@ -33,12 +33,24 @@ function App() {
       handleUrlChange();
     };
 
+    // Poll for URL changes (catches HTTP redirects from Edge Functions)
+    const urlPolling = setInterval(() => {
+      const currentUrl = window.location.pathname + window.location.search;
+      const storedUrl = currentPath + searchParams;
+      
+      if (currentUrl !== storedUrl) {
+        console.log('URL changed via redirect, updating state');
+        handleUrlChange();
+      }
+    }, 100); // Check every 100ms
+
     return () => {
       window.removeEventListener('popstate', handleUrlChange);
       history.pushState = originalPushState;
       history.replaceState = originalReplaceState;
+      clearInterval(urlPolling);
     };
-  }, []);
+  }, [currentPath, searchParams]);
 
   return (
     <div className="App">
