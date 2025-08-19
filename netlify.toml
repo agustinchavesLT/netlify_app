@@ -23,6 +23,17 @@
 # Category redirects are now handled by Edge Functions for complex logic
 # See netlify/edge-functions/category-redirects.ts
 
+# Ensure Spanish archive paths don't get re-redirected (short-circuit)
+[[redirects]]
+  from = "/archive/es"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/archive/es/*"
+  to = "/index.html"
+  status = 200
+
 # Redirect visitors with Spanish language preference to the Spanish archive
 [[redirects]]
   from = "/archive/*"

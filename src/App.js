@@ -86,42 +86,24 @@ function App() {
 
       <main className="main-content">
         {(() => {
-          console.log('=== ROUTING DEBUG ===');
-          console.log('Rendering route for path:', currentPath);
-          console.log('Path type:', typeof currentPath);
-          console.log('Path length:', currentPath.length);
-          console.log('Does path start with /archive?:', currentPath.startsWith('/archive'));
-          console.log('Does path start with /archive/?:', currentPath.startsWith('/archive/'));
-          console.log('Path === "/archive":', currentPath === '/archive');
-          console.log('Path === "/archive/":', currentPath === '/archive/');
-          console.log('Path includes "archive":', currentPath.includes('archive'));
-          console.log('=== END ROUTING DEBUG ===');
-          
           switch (currentPath) {
             case '/profile':
-              console.log('Rendering Profile component');
               return <Profile />;
             case '/blog':
-              console.log('Rendering Blog component');
               return <Blog />;
             case '/archive':
-              console.log('Rendering Archive component (exact match)');
               return <Archive />;
             case '/archive/es':
-              console.log('Rendering Archive ES component (exact match)');
               return <ArchiveEs />;
             default:
               // Check if it's an archive ES URL pattern
               if (currentPath.startsWith('/archive/es/')) {
-                console.log('Rendering Archive ES component for pattern:', currentPath);
                 return <ArchiveEs />;
               }
               // Check if it's an archive URL pattern
               if (currentPath.startsWith('/archive/')) {
-                console.log('Rendering Archive component for pattern:', currentPath);
                 return <Archive />;
               }
-              console.log('Rendering Home component');
               return <Home />;
           }
         })()}
