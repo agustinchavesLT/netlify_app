@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Blog from './pages/Blog';
 import Archive from './pages/Archive';
+import ArchiveEs from './pages/archive/es/Archive';
 import './App.css';
 
 function App() {
@@ -106,7 +107,15 @@ function App() {
             case '/archive':
               console.log('Rendering Archive component (exact match)');
               return <Archive />;
+            case '/archive/es':
+              console.log('Rendering Archive ES component (exact match)');
+              return <ArchiveEs />;
             default:
+              // Check if it's an archive ES URL pattern
+              if (currentPath.startsWith('/archive/es/')) {
+                console.log('Rendering Archive ES component for pattern:', currentPath);
+                return <ArchiveEs />;
+              }
               // Check if it's an archive URL pattern
               if (currentPath.startsWith('/archive/')) {
                 console.log('Rendering Archive component for pattern:', currentPath);

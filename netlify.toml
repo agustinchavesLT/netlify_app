@@ -23,6 +23,13 @@
 # Category redirects are now handled by Edge Functions for complex logic
 # See netlify/edge-functions/category-redirects.ts
 
+# Redirect visitors with Spanish language preference to the Spanish archive
+[[redirects]]
+  from = "/archive/*"
+  to = "/archive/es/:splat"
+  status = 302
+  conditions = {Language = ["es", "es-es", "es-ar", "es-mx", "es-419"]}
+
 # SPA fallback - must be last to avoid interfering with Edge Functions
 [[redirects]]
   from = "/*"
